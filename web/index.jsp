@@ -30,7 +30,7 @@
        <td width="50%"><input type="text" size="53" name="telefono"></td>
      </tr>
      <tr>
-       <td width="70%">Dirección: </td>
+       <td width="70%">Direcciooooón: </td>
        <td width="50%"><input type="text" size="53" name="direccion"></td>
      </tr>
    </table>
