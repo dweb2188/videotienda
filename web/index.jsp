@@ -1,3 +1,4 @@
+<%@page import="java.sql.*"%>
 <!DOCTYPE HTML>
 <!--
 	Photon by HTML5 UP
@@ -37,6 +38,44 @@
 								<h2>Clientes</h2>
 							</header>
 							<p>Listado de clientes</p>
+                                                        
+                                                        <table border="1" widht="600">
+                                                            <tr>
+                                                                <th>id</th><th>Nombre</th><th>Apellido</th><th>Documento</th><th>Telefono</th><th>Direccion</th>
+                                                            </tr>
+                                                            <%
+                                                            Connection cnx=null;
+                                                            Statement sta=null;
+                                                            ResultSet rs=null;
+                                                            
+                                                            try{
+                                                                Class.forName("com.mysql.jdbc.Driver");
+                                                                cnx=DriverManager.getConnection ("jdbc:mysql://localhost/videotienda?user=root&password=");
+                                                            sta=cnx.createStatement ();
+                                                            rs=sta.executeQuery("select * from clientes");
+                                                            
+                                                            while (rs.next()){
+                                                                
+                                                            
+                                                                %>
+                                                                <tr>
+                                                                <th><%=rs.getString(1)%></th>
+                                                                <th><%=rs.getString(2)%></th>
+                                                                <th><%=rs.getString(3)%></th>
+                                                                <th><%=rs.getString(4)%></th>
+                                                                <th><%=rs.getString(5)%></th>
+                                                                </tr>
+                                                                
+                                                            <%
+                                                                }
+                                                                sta.close();
+                                                                rs.close();
+                                                                cnx.close();
+                                                            }catch (Exception e) {}
+                                                            
+                                                            %>
+                                                        </table>
+                                                        
 						</div>
 						<div class="col-6 col-12-medium imp-medium">
 							<span class="image fit"><img src="images/pic01.jpg" alt="" /></span>
