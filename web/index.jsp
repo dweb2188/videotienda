@@ -22,14 +22,14 @@
 					<h1>Bienvenidos a nuestro videoclub virtual donde podrás alquilar tus peliculas favoritas sin moverte de tu casa<br /></h1>
 					
 					<ul class="actions special">
-						<li><a href="#one" class="button scrolly">Clientes</a></li>
-                                                <li><a href="#two" class="button scrolly">Peliculas</a></li>
+						<li><a href="#clientes" class="button scrolly">Clientes</a></li>
+                                                <li><a href="#peliculas" class="button scrolly">Peliculas</a></li>
                                                 <li><a href="#one" class="button scrolly">Tiendas</a></li>
 					</ul>
 				</div>
 			</section>
 
-		<!-- One -->
+		<!-- clientes -->
 			<section id="clientes" class="main style1">
 				<div class="container">
 					<div class="row gtr-150">
@@ -50,7 +50,7 @@
                                                             
                                                             try{
                                                                 Class.forName("com.mysql.jdbc.Driver");
-                                                                cnx=DriverManager.getConnection ("jdbc:mysql://localhost/videotienda?user=root&password=");
+                                                                cnx=DriverManager.getConnection ("jdbc:mysql://localhost/videotienda?user=videotienda&password=123456");
                                                             sta=cnx.createStatement ();
                                                             rs=sta.executeQuery("select * from clientes");
                                                             
@@ -78,14 +78,44 @@
                                                         </table>
                                                         
 						</div>
-						<div class="col-6 col-12-medium imp-medium">
-							<span class="image fit"><img src="images/pic01.jpg" alt="" /></span>
-						</div>
+						<table border="1" widht="600">
+                                                            <tr>
+                                                                <th>id</th><th>Titulo</th><th>Estado</th>
+                                                            </tr>
+                                                            <%
+                                                            
+                                                            
+                                                            try{
+                                                                Class.forName("com.mysql.jdbc.Driver");
+                                                                cnx=DriverManager.getConnection ("jdbc:mysql://localhost/videotienda?user=videotienda&password=123456");
+                                                            sta=cnx.createStatement ();
+                                                            rs=sta.executeQuery("select * from peliculas WHERE estado=1");
+                                                            
+                                                            while (rs.next()){
+                                                                
+                                                            
+                                                                %>
+                                                                <tr>
+                                                                <th><%=rs.getString(1)%></th>
+                                                                <th><%=rs.getString(2)%></th>
+                                                                <th><%=rs.getString(4)%></th>
+                                                                </tr>
+                                                                
+                                                            <%
+                                                                }
+                                                                sta.close();
+                                                                rs.close();
+                                                                cnx.close();
+                                                            }catch (Exception e) {}
+                                                            
+                                                            %>
+                                                        </table>
+
 					</div>
 				</div>
 			</section>
                                                         
-                <!-- One -->
+                <!-- peliculas -->
 			<section id="peliculas" class="main style1">
 				<div class="container">
 					<div class="row gtr-150">
@@ -104,7 +134,7 @@
                                                             
                                                             try{
                                                                 Class.forName("com.mysql.jdbc.Driver");
-                                                                cnx=DriverManager.getConnection ("jdbc:mysql://localhost/videotienda?user=root&password=");
+                                                                cnx=DriverManager.getConnection ("jdbc:mysql://localhost/videotienda?user=videotienda&password=123456");
                                                             sta=cnx.createStatement ();
                                                             rs=sta.executeQuery("select * from peliculas");
                                                             
@@ -136,6 +166,58 @@
 					</div>
 				</div>
 			</section>
+                                                        
+ <!-- Tiendas -->
+			<section id="tiendas" class="main style1">
+				<div class="container">
+					<div class="row gtr-150">
+						<div class="col-6 col-12-medium">
+							<header class="major">
+								<h2>Tiendas</h2>
+							</header>
+							<p>Listado de tiendas</p>
+                                                        
+                                                        <table border="1" widht="600">
+                                                            <tr>
+                                                                <th>id</th><th>Titulo</th><th>Sinopsis</th><th>Estado</th>
+                                                            </tr>
+                                                            <%
+                                                            
+                                                            
+                                                            try{
+                                                                Class.forName("com.mysql.jdbc.Driver");
+                                                                cnx=DriverManager.getConnection ("jdbc:mysql://localhost/videotienda?user=videotienda&password=123456");
+                                                            sta=cnx.createStatement ();
+                                                            rs=sta.executeQuery("select * from peliculas");
+                                                            
+                                                            while (rs.next()){
+                                                                
+                                                            
+                                                                %>
+                                                                <tr>
+                                                                <th><%=rs.getString(1)%></th>
+                                                                <th><%=rs.getString(2)%></th>
+                                                                <th><%=rs.getString(3)%></th>
+                                                                <th><%=rs.getString(4)%></th>
+                                                                </tr>
+                                                                
+                                                            <%
+                                                                }
+                                                                sta.close();
+                                                                rs.close();
+                                                                cnx.close();
+                                                            }catch (Exception e) {}
+                                                            
+                                                            %>
+                                                        </table>
+                                                        
+						</div>
+						<div class="col-6 col-12-medium imp-medium">
+							<span class="image fit"><img src="images/pic01.jpg" alt="" /></span>
+						</div>
+					</div>
+				</div>
+			</section>                                                        
 	
 		<!-- Footer -->
 			<section id="footer">
