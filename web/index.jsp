@@ -23,14 +23,14 @@
 					
 					<ul class="actions special">
 						<li><a href="#one" class="button scrolly">Clientes</a></li>
-                                                <li><a href="#one" class="button scrolly">Peliculas</a></li>
+                                                <li><a href="#two" class="button scrolly">Peliculas</a></li>
                                                 <li><a href="#one" class="button scrolly">Tiendas</a></li>
 					</ul>
 				</div>
 			</section>
 
 		<!-- One -->
-			<section id="one" class="main style1">
+			<section id="clientes" class="main style1">
 				<div class="container">
 					<div class="row gtr-150">
 						<div class="col-6 col-12-medium">
@@ -64,6 +64,59 @@
                                                                 <th><%=rs.getString(3)%></th>
                                                                 <th><%=rs.getString(4)%></th>
                                                                 <th><%=rs.getString(5)%></th>
+                                                                <th><%=rs.getString(6)%></th>
+                                                                </tr>
+                                                                
+                                                            <%
+                                                                }
+                                                                sta.close();
+                                                                rs.close();
+                                                                cnx.close();
+                                                            }catch (Exception e) {}
+                                                            
+                                                            %>
+                                                        </table>
+                                                        
+						</div>
+						<div class="col-6 col-12-medium imp-medium">
+							<span class="image fit"><img src="images/pic01.jpg" alt="" /></span>
+						</div>
+					</div>
+				</div>
+			</section>
+                                                        
+                <!-- One -->
+			<section id="peliculas" class="main style1">
+				<div class="container">
+					<div class="row gtr-150">
+						<div class="col-6 col-12-medium">
+							<header class="major">
+								<h2>Peliculas</h2>
+							</header>
+							<p>Listado de peliculas</p>
+                                                        
+                                                        <table border="1" widht="600">
+                                                            <tr>
+                                                                <th>id</th><th>Titulo</th><th>Sinopsis</th><th>Estado</th>
+                                                            </tr>
+                                                            <%
+                                                            
+                                                            
+                                                            try{
+                                                                Class.forName("com.mysql.jdbc.Driver");
+                                                                cnx=DriverManager.getConnection ("jdbc:mysql://localhost/videotienda?user=root&password=");
+                                                            sta=cnx.createStatement ();
+                                                            rs=sta.executeQuery("select * from peliculas");
+                                                            
+                                                            while (rs.next()){
+                                                                
+                                                            
+                                                                %>
+                                                                <tr>
+                                                                <th><%=rs.getString(1)%></th>
+                                                                <th><%=rs.getString(2)%></th>
+                                                                <th><%=rs.getString(3)%></th>
+                                                                <th><%=rs.getString(4)%></th>
                                                                 </tr>
                                                                 
                                                             <%
