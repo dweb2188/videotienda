@@ -20,27 +20,29 @@
 				<div class="inner">
 					<span class="icon major fa-cloud"></span>
 					<h1>Bienvenidos a nuestro videoclub virtual donde podrás alquilar tus peliculas favoritas sin moverte de tu casa<br /></h1>
-					<h2>Elija su perfil<br /></h2>
+					<h1>Clientes<br /></h1>
 					<ul class="actions special">
-						<li><a href="administrador.jsp" class="button scrolly">Administrador</a></li>
-                                                <li><a href="clientes.jsp" class="button scrolly">Clientes</a></li>
+						<li><a href="#alquilar" class="button scrolly">Alquilar Peliculas</a></li>
+                                                <li><a href="#alquiladas" class="button scrolly">Listado de Peliculas Alquiladas</a></li>
+                                                <li><a href="administrador.jsp" class="button scrolly">Ir a Administrador</a></li>
+                                                
 					</ul>
 				</div>
 			</section>
 
-		<!-- clientes -->
-			<section id="clientes" class="main style1">
+		<!-- alquilar -->
+			<section id="alquilar" class="main style1">
 				<div class="container">
-					<div class="row gtr-150">
+					<div class="left">
 						<div class="col-6 col-12-medium">
 							<header class="major">
-								<h2>Clientes</h2>
+								<h2>Peliculas</h2>
 							</header>
-							<p>Listado de clientes</p>
+							<p>Listado de peliculas</p>
                                                         
                                                         <table border="1" widht="600">
                                                             <tr>
-                                                                <th>id</th><th>Nombre</th><th>Apellido</th><th>Documento</th><th>Telefono</th><th>Direccion</th>
+                                                                <th>id</th><th>Titulo</th><th>Sinopsis</th><th>Estado</th>
                                                             </tr>
                                                             <%
                                                             Connection cnx=null;
@@ -51,7 +53,7 @@
                                                                 Class.forName("com.mysql.jdbc.Driver");
                                                                 cnx=DriverManager.getConnection ("jdbc:mysql://localhost/videotienda?user=root&password=");
                                                             sta=cnx.createStatement ();
-                                                            rs=sta.executeQuery("select * from clientes");
+                                                            rs=sta.executeQuery("select * from peliculas");
                                                             
                                                             while (rs.next()){
                                                                 
@@ -62,8 +64,6 @@
                                                                 <th><%=rs.getString(2)%></th>
                                                                 <th><%=rs.getString(3)%></th>
                                                                 <th><%=rs.getString(4)%></th>
-                                                                <th><%=rs.getString(5)%></th>
-                                                                <th><%=rs.getString(6)%></th>
                                                                 </tr>
                                                                 
                                                             <%
@@ -93,7 +93,7 @@
                                                                 <tr>
                                                                 <th><%=rs.getString(1)%></th>
                                                                 <th><%=rs.getString(2)%></th>
-                                                                <th><%=rs.getString(4)%></th>
+                                                                <th><%=rs.getString(3)%></th>
                                                                 </tr>
                                                                 
                                                             <%
@@ -156,56 +156,7 @@
 				</div>
 			</section>
                                                         
- <!-- Tiendas -->
-			<section id="tiendas" class="main style1">
-				<div class="container">
-					<div class="row gtr-150">
-						<div class="col-6 col-12-medium">
-							<header class="major">
-								<h2>Tiendas</h2>
-							</header>
-							<p>Listado de tiendas</p>
-                                                        
-                                                        <table border="1" widht="600">
-                                                            <tr>
-                                                                <th>id</th><th>Tienda</th><th>Direccion</th>
-                                                            </tr>
-                                                            <%
-                                                            
-                                                            
-                                                            try{
-                                                                
-                                                            rs=sta.executeQuery("select * from tiendas");
-                                                            
-                                                            while (rs.next()){
-                                                                
-                                                            
-                                                                %>
-                                                                <tr>
-                                                                <th><%=rs.getString(1)%></th>
-                                                                <th><%=rs.getString(2)%></th>
-                                                                <th><%=rs.getString(3)%></th>
-                                                                
-                                                                </tr>
-                                                                
-                                                            <%
-                                                                }
-                                                                sta.close();
-                                                                rs.close();
-                                                                cnx.close();
-                                                            }catch (Exception e) {}
-                                                            
-                                                            %>
-                                                        </table>
-                                                        
-						</div>
-						<div class="col-6 col-12-medium imp-medium">
-							<span class="image fit"><img src="images/pic01.jpg" alt="" /></span>
-						</div>
-					</div>
-				</div>
-			</section>                                                        
-	
+ 	
 		<!-- Footer -->
 			<section id="footer">
 				<ul class="icons">

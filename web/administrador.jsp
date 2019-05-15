@@ -20,10 +20,12 @@
 				<div class="inner">
 					<span class="icon major fa-cloud"></span>
 					<h1>Bienvenidos a nuestro videoclub virtual donde podrás alquilar tus peliculas favoritas sin moverte de tu casa<br /></h1>
-					<h2>Elija su perfil<br /></h2>
+					<h1>Administrador<br /></h1>
 					<ul class="actions special">
-						<li><a href="administrador.jsp" class="button scrolly">Administrador</a></li>
-                                                <li><a href="clientes.jsp" class="button scrolly">Clientes</a></li>
+						<li><a href="#clientes" class="button scrolly">Listado de Clientes</a></li>
+                                                <li><a href="#peliculas" class="button scrolly">Listado de Peliculas</a></li>
+                                                <li><a href="#tiendas" class="button scrolly">Listado de Tiendas</a></li>
+                                                <li><a href="clientes.jsp" class="button scrolly">Ir a Clientes</a></li>
 					</ul>
 				</div>
 			</section>
