@@ -1,5 +1,5 @@
 ﻿# Host: localhost  (Version 5.5.24-log)
-# Date: 2019-05-14 21:36:53
+# Date: 2019-05-16 23:31:53
 # Generator: MySQL-Front 6.1  (Build 1.26)
 
 
@@ -53,6 +53,7 @@ CREATE TABLE `peliculas` (
   `titulo` varchar(255) DEFAULT NULL,
   `sinopsis` longtext,
   `estado` tinyint(1) DEFAULT NULL,
+  `cliente` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
@@ -60,7 +61,7 @@ CREATE TABLE `peliculas` (
 # Data for table "peliculas"
 #
 
-INSERT INTO `peliculas` VALUES (1,'Star Wars',' Su trama describe las vivencias de un grupo de personajes que habitan en una galaxia ficticia e interactúan con elementos como la Fuerza, un campo de energía metafísico y omnipresente4? que posee un «lado oscuro» provocado por la ira, el miedo y el odio.',0),(2,'Avengers','El director de la Agencia SHIELD decide reclutar a un equipo para salvar al mundo de un desastre casi seguro cuando un enemigo inesperado surge como una gran amenaza para la seguridad mundial.',0),(3,'Batman','Después de la muerte de sus padres, el joven heredero Bruce Wayne se convierte en un vengador enmascarado que lucha contra las fuerzas del mal en Ciudad Gótica.',1),(4,'Iron Man','Un empresario millonario construye un traje blindado y lo usa para combatir el crimen y el terrorismo.',1);
+INSERT INTO `peliculas` VALUES (1,'Star Wars',' Su trama describe las vivencias de un grupo de personajes que habitan en una galaxia ficticia e interactúan con elementos como la Fuerza, un campo de energía metafísico y omnipresente4? que posee un «lado oscuro» provocado por la ira, el miedo y el odio.',1,NULL),(2,'Avengers','El director de la Agencia SHIELD decide reclutar a un equipo para salvar al mundo de un desastre casi seguro cuando un enemigo inesperado surge como una gran amenaza para la seguridad mundial.',0,NULL),(3,'Batman','Después de la muerte de sus padres, el joven heredero Bruce Wayne se convierte en un vengador enmascarado que lucha contra las fuerzas del mal en Ciudad Gótica.',1,'horacio'),(4,'Iron Man','Un empresario millonario construye un traje blindado y lo usa para combatir el crimen y el terrorismo.',1,'horacio');
 
 #
 # Structure for table "tiendas"
@@ -72,7 +73,7 @@ CREATE TABLE `tiendas` (
   `nombre` varchar(255) DEFAULT NULL,
   `direccion` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 #
 # Data for table "tiendas"
