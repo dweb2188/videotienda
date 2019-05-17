@@ -25,8 +25,7 @@
 						<li><a href="#clientes" class="button scrolly">Listado de Clientes</a></li>
                                                 <li><a href="#peliculas" class="button scrolly">Listado de Peliculas</a></li>
                                                 <li><a href="#tiendas" class="button scrolly">Listado de Tiendas</a></li>
-                                                <li><a href="clientes.jsp" class="button scrolly">Ir a Clientes</a></li>
-					</ul>
+                                        </ul>
 				</div>
 			</section>
 
@@ -77,34 +76,7 @@
                                                         </table>
                                                         
 						</div>
-						<table border="1" widht="600">
-                                                            <tr>
-                                                                <th>id</th><th>Titulo</th><th>Estado</th>
-                                                            </tr>
-                                                            <%
-                                                            
-                                                            
-                                                            try{
-                                                                
-                                                            rs=sta.executeQuery("select * from peliculas WHERE estado=1");
-                                                            
-                                                            while (rs.next()){
-                                                                
-                                                            
-                                                                %>
-                                                                <tr>
-                                                                <th><%=rs.getString(1)%></th>
-                                                                <th><%=rs.getString(2)%></th>
-                                                                <th><%=rs.getString(4)%></th>
-                                                                </tr>
-                                                                
-                                                            <%
-                                                                }
-                                                                
-                                                            }catch (Exception e) {}
-                                                            
-                                                            %>
-                                                        </table>
+                                                        
 
 					</div>
 				</div>

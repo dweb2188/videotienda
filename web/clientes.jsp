@@ -12,6 +12,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+               %>
+               
 	</head>
 	<body class="is-preload">
 
@@ -20,13 +22,11 @@
 				<div class="inner">
 					<span class="icon major fa-cloud"></span>
 					<h1>Bienvenidos a nuestro videoclub virtual donde podrás alquilar tus peliculas favoritas sin moverte de tu casa<br /></h1>
-					<h1>Clientes<br /></h1>
+					<h1>Bienvenido: <% out.print(request.getParameter("usuario"));%><br /></h1>
 					<ul class="actions special">
 						<li><a href="#alquilar" class="button scrolly">Alquilar Peliculas</a></li>
-                                                <li><a href="#alquiladas" class="button scrolly">Listado de Peliculas Alquiladas</a></li>
-                                                <li><a href="administrador.jsp" class="button scrolly">Ir a Administrador</a></li>
-                                                
-					</ul>
+                                                <li><a href="#misAlquiladas" class="button scrolly">Mis Peliculas Alquiladas</a></li>
+                                        </ul>
 				</div>
 			</section>
 
@@ -36,13 +36,13 @@
 					<div class="left">
 						<div class="col-6 col-12-medium">
 							<header class="major">
-								<h2>Peliculas</h2>
+								<h2>Peliculas disponibles</h2>
 							</header>
-							<p>Listado de peliculas</p>
+							<p>Listado de peliculas disponibles</p>
                                                         
                                                         <table border="1" widht="600">
                                                             <tr>
-                                                                <th>id</th><th>Titulo</th><th>Sinopsis</th><th>Estado</th>
+                                                                <th>id</th><th>Titulo</th><th>Sinopsis</th><th>Alquilar</th>
                                                             </tr>
                                                             <%
                                                             Connection cnx=null;
@@ -53,7 +53,7 @@
                                                                 Class.forName("com.mysql.jdbc.Driver");
                                                                 cnx=DriverManager.getConnection ("jdbc:mysql://localhost/videotienda?user=root&password=");
                                                             sta=cnx.createStatement ();
-                                                            rs=sta.executeQuery("select * from peliculas");
+                                                            rs=sta.executeQuery("select * from peliculas WHERE estado=0");
                                                             
                                                             while (rs.next()){
                                                                 
@@ -63,7 +63,11 @@
                                                                 <th><%=rs.getString(1)%></th>
                                                                 <th><%=rs.getString(2)%></th>
                                                                 <th><%=rs.getString(3)%></th>
-                                                                <th><%=rs.getString(4)%></th>
+                                                                <th>
+                                                                    <a href="alquilar.jsp?cod=<%=rs.getString(1)%>&cliente=<% request.getParameter("usuario");%>">                                                                    
+                                                                    <img src="images/play.png" width="30" height="30">
+                                                                    </a>
+                                                                </th>
                                                                 </tr>
                                                                 
                                                             <%
@@ -75,59 +79,29 @@
                                                         </table>
                                                         
 						</div>
-						<table border="1" widht="600">
-                                                            <tr>
-                                                                <th>id</th><th>Titulo</th><th>Estado</th>
-                                                            </tr>
-                                                            <%
-                                                            
-                                                            
-                                                            try{
-                                                                
-                                                            rs=sta.executeQuery("select * from peliculas WHERE estado=1");
-                                                            
-                                                            while (rs.next()){
-                                                                
-                                                            
-                                                                %>
-                                                                <tr>
-                                                                <th><%=rs.getString(1)%></th>
-                                                                <th><%=rs.getString(2)%></th>
-                                                                <th><%=rs.getString(3)%></th>
-                                                                </tr>
-                                                                
-                                                            <%
-                                                                }
-                                                                
-                                                            }catch (Exception e) {}
-                                                            
-                                                            %>
-                                                        </table>
-
-					</div>
+                                        </div>
 				</div>
 			</section>
                                                         
-                <!-- peliculas -->
-			<section id="peliculas" class="main style1">
+                <!-- misAlquiladas -->
+			<section id="misAlquiladas" class="main style1">
 				<div class="container">
 					<div class="left">
 						<div class="col-6 col-12-medium">
 							<header class="major">
-								<h2>Peliculas</h2>
+								<h2>Mis Peliculas Alquiladas</h2>
 							</header>
-							<p>Listado de peliculas</p>
+							<p>Listado de Mis Peliculas Alquiladas</p>
                                                         
                                                         <table border="1" widht="600">
                                                             <tr>
-                                                                <th>id</th><th>Titulo</th><th>Sinopsis</th><th>Estado</th>
+                                                                <th>id</th><th>Titulo</th><th>Sinopsis</th>
                                                             </tr>
                                                             <%
-                                                            
-                                                            
+                                                                                                                   
                                                             try{
                                                                 
-                                                            rs=sta.executeQuery("select * from peliculas");
+                                                            rs=sta.executeQuery("select * from peliculas WHERE estado=1 AND cliente='"+request.getParameter("usuario")+"'");
                                                             
                                                             while (rs.next()){
                                                                 
@@ -137,7 +111,6 @@
                                                                 <th><%=rs.getString(1)%></th>
                                                                 <th><%=rs.getString(2)%></th>
                                                                 <th><%=rs.getString(3)%></th>
-                                                                <th><%=rs.getString(4)%></th>
                                                                 </tr>
                                                                 
                                                             <%

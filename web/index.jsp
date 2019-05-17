@@ -20,192 +20,21 @@
 				<div class="inner">
 					<span class="icon major fa-cloud"></span>
 					<h1>Bienvenidos a nuestro videoclub virtual donde podrás alquilar tus peliculas favoritas sin moverte de tu casa<br /></h1>
-					<h2>Elija su perfil<br /></h2>
-					<ul class="actions special">
-						<li><a href="administrador.jsp" class="button scrolly">Administrador</a></li>
-                                                <li><a href="clientes.jsp" class="button scrolly">Clientes</a></li>
-					</ul>
+					<h2>Login<br /></h2>
+	<form action="login.jsp" method="post">
+        
+       <tr>
+       <td>Usuario: </td>
+       <td width="10%"><input type="text" size="53" name="usuario"></td>
+       </tr>
+       <tr>
+       <td>Contraseña: </td>
+       <td><input type="text" size="53" name="contrasena"></td>
+       </tr>
+       <p><input type="submit" value="Enviar"></p>
 				</div>
 			</section>
 
-		<!-- clientes -->
-			<section id="clientes" class="main style1">
-				<div class="container">
-					<div class="row gtr-150">
-						<div class="col-6 col-12-medium">
-							<header class="major">
-								<h2>Clientes</h2>
-							</header>
-							<p>Listado de clientes</p>
-                                                        
-                                                        <table border="1" widht="600">
-                                                            <tr>
-                                                                <th>id</th><th>Nombre</th><th>Apellido</th><th>Documento</th><th>Telefono</th><th>Direccion</th>
-                                                            </tr>
-                                                            <%
-                                                            Connection cnx=null;
-                                                            Statement sta=null;
-                                                            ResultSet rs=null;
-                                                            
-                                                            try{
-                                                                Class.forName("com.mysql.jdbc.Driver");
-                                                                cnx=DriverManager.getConnection ("jdbc:mysql://localhost/videotienda?user=root&password=");
-                                                            sta=cnx.createStatement ();
-                                                            rs=sta.executeQuery("select * from clientes");
-                                                            
-                                                            while (rs.next()){
-                                                                
-                                                            
-                                                                %>
-                                                                <tr>
-                                                                <th><%=rs.getString(1)%></th>
-                                                                <th><%=rs.getString(2)%></th>
-                                                                <th><%=rs.getString(3)%></th>
-                                                                <th><%=rs.getString(4)%></th>
-                                                                <th><%=rs.getString(5)%></th>
-                                                                <th><%=rs.getString(6)%></th>
-                                                                </tr>
-                                                                
-                                                            <%
-                                                                }
-                                                                
-                                                            }catch (Exception e) {}
-                                                            
-                                                            %>
-                                                        </table>
-                                                        
-						</div>
-						<table border="1" widht="600">
-                                                            <tr>
-                                                                <th>id</th><th>Titulo</th><th>Estado</th>
-                                                            </tr>
-                                                            <%
-                                                            
-                                                            
-                                                            try{
-                                                                
-                                                            rs=sta.executeQuery("select * from peliculas WHERE estado=1");
-                                                            
-                                                            while (rs.next()){
-                                                                
-                                                            
-                                                                %>
-                                                                <tr>
-                                                                <th><%=rs.getString(1)%></th>
-                                                                <th><%=rs.getString(2)%></th>
-                                                                <th><%=rs.getString(4)%></th>
-                                                                </tr>
-                                                                
-                                                            <%
-                                                                }
-                                                                
-                                                            }catch (Exception e) {}
-                                                            
-                                                            %>
-                                                        </table>
-
-					</div>
-				</div>
-			</section>
-                                                        
-                <!-- peliculas -->
-			<section id="peliculas" class="main style1">
-				<div class="container">
-					<div class="left">
-						<div class="col-6 col-12-medium">
-							<header class="major">
-								<h2>Peliculas</h2>
-							</header>
-							<p>Listado de peliculas</p>
-                                                        
-                                                        <table border="1" widht="600">
-                                                            <tr>
-                                                                <th>id</th><th>Titulo</th><th>Sinopsis</th><th>Estado</th>
-                                                            </tr>
-                                                            <%
-                                                            
-                                                            
-                                                            try{
-                                                                
-                                                            rs=sta.executeQuery("select * from peliculas");
-                                                            
-                                                            while (rs.next()){
-                                                                
-                                                            
-                                                                %>
-                                                                <tr>
-                                                                <th><%=rs.getString(1)%></th>
-                                                                <th><%=rs.getString(2)%></th>
-                                                                <th><%=rs.getString(3)%></th>
-                                                                <th><%=rs.getString(4)%></th>
-                                                                </tr>
-                                                                
-                                                            <%
-                                                                }
-                                                                
-                                                            }catch (Exception e) {}
-                                                            
-                                                            %>
-                                                        </table>
-                                                        
-						</div>
-						<div class="col-6 col-12-medium imp-medium">
-							
-						</div>
-					</div>
-				</div>
-			</section>
-                                                        
- <!-- Tiendas -->
-			<section id="tiendas" class="main style1">
-				<div class="container">
-					<div class="row gtr-150">
-						<div class="col-6 col-12-medium">
-							<header class="major">
-								<h2>Tiendas</h2>
-							</header>
-							<p>Listado de tiendas</p>
-                                                        
-                                                        <table border="1" widht="600">
-                                                            <tr>
-                                                                <th>id</th><th>Tienda</th><th>Direccion</th>
-                                                            </tr>
-                                                            <%
-                                                            
-                                                            
-                                                            try{
-                                                                
-                                                            rs=sta.executeQuery("select * from tiendas");
-                                                            
-                                                            while (rs.next()){
-                                                                
-                                                            
-                                                                %>
-                                                                <tr>
-                                                                <th><%=rs.getString(1)%></th>
-                                                                <th><%=rs.getString(2)%></th>
-                                                                <th><%=rs.getString(3)%></th>
-                                                                
-                                                                </tr>
-                                                                
-                                                            <%
-                                                                }
-                                                                sta.close();
-                                                                rs.close();
-                                                                cnx.close();
-                                                            }catch (Exception e) {}
-                                                            
-                                                            %>
-                                                        </table>
-                                                        
-						</div>
-						<div class="col-6 col-12-medium imp-medium">
-							<span class="image fit"><img src="images/pic01.jpg" alt="" /></span>
-						</div>
-					</div>
-				</div>
-			</section>                                                        
-	
 		<!-- Footer -->
 			<section id="footer">
 				<ul class="icons">
