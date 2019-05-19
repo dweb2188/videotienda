@@ -40,9 +40,9 @@
 							</header>
 							<p>Listado de peliculas disponibles</p>
                                                         
-                                                        <table border="1" widht="600">
+                                                        <table border="1" widht="800">
                                                             <tr>
-                                                                <th>id</th><th>Titulo</th><th>Sinopsis</th><th>Alquilar</th>
+                                                                <th>id</th><th>Titulo</th><th>Sinopsis</th><th>Cantidad de veces</th><th>Alquilar</th>
                                                             </tr>
                                                             <%
                                                             Connection cnx=null;
@@ -63,8 +63,9 @@
                                                                 <th><%=rs.getString(1)%></th>
                                                                 <th><%=rs.getString(2)%></th>
                                                                 <th><%=rs.getString(3)%></th>
+                                                                <th><%=rs.getString(6)%></th>
                                                                 <th>
-                                                                    <a href="alquilar.jsp?cod=<%=rs.getString(1)%>&cliente=<% request.getParameter("usuario");%>">                                                                    
+                                                                    <a href="alquilar.jsp?cod=<%=rs.getString(1)%>&usuario=<%request.getParameter("usuario");%>&cont=<%=rs.getString(6)%>">                                                                    
                                                                     <img src="images/play.png" width="30" height="30">
                                                                     </a>
                                                                 </th>
@@ -77,7 +78,7 @@
                                                             
                                                             %>
                                                         </table>
-                                                        
+                             
 						</div>
                                         </div>
 				</div>
@@ -93,9 +94,9 @@
 							</header>
 							<p>Listado de Mis Peliculas Alquiladas</p>
                                                         
-                                                        <table border="1" widht="600">
+                                                        <table border="1" widht="800">
                                                             <tr>
-                                                                <th>id</th><th>Titulo</th><th>Sinopsis</th>
+                                                                <th>id</th><th>Titulo</th><th>Sinopsis</th><th>Devolver</th>
                                                             </tr>
                                                             <%
                                                                                                                    
@@ -112,7 +113,10 @@
                                                                 <th><%=rs.getString(2)%></th>
                                                                 <th><%=rs.getString(3)%></th>
                                                                 </tr>
-                                                                
+                                                                <th>
+                                                                    <a href="devolver.jsp?cod=<%=rs.getString(1)%>&usuario=<%request.getParameter("");%>">                                                                    
+                                                                    <img src="images/play.png" width="30" height="30">
+                                                                    </a>
                                                             <%
                                                                 }
                                                                 

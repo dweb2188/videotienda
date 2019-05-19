@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Devolucion</title>
     </head>
     <body>
         <%
@@ -19,9 +19,8 @@
                 Class.forName("com.mysql.jdbc.Driver");
                 cnx=DriverManager.getConnection ("jdbc:mysql://localhost/videotienda?user=root&password=");
                 sta=cnx.createStatement ();
-                sta.executeUpdate("UPDATE peliculas SET estado='1' WHERE id='"+request.getParameter("cod")+"'");
-                sta.executeUpdate("UPDATE peliculas SET cliente='"+request.getParameter("usuario")+"' WHERE id='"+request.getParameter("cod")+"'");
-                sta.executeUpdate("UPDATE peliculas SET cant='"+request.getParameter("cont")+"' WHERE id='"+request.getParameter("cod")+"'");
+                sta.executeUpdate("UPDATE peliculas SET estado='0' WHERE id='"+request.getParameter("cod")+"'");
+                sta.executeUpdate("UPDATE peliculas SET cliente='' WHERE id='"+request.getParameter("cod")+"'");
                 request.getRequestDispatcher("clientes.jsp").forward(request, response);
                                                             
                 }catch (Exception e) {}
