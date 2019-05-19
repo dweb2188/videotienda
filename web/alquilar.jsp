@@ -22,6 +22,7 @@
                 sta.executeUpdate("UPDATE peliculas SET estado='1' WHERE id='"+request.getParameter("cod")+"'");
                 sta.executeUpdate("UPDATE peliculas SET cliente='"+request.getParameter("usuario")+"' WHERE id='"+request.getParameter("cod")+"'");
                 sta.executeUpdate("UPDATE peliculas SET cant='"+request.getParameter("cont")+"' WHERE id='"+request.getParameter("cod")+"'");
+                sta.executeUpdate("UPDATE clientes SET cantidad='"+request.getParameter("cont")+"' WHERE id='"+request.getParameter("cod")+"'");
                 request.getRequestDispatcher("clientes.jsp").forward(request, response);
                                                             
                 }catch (Exception e) {}

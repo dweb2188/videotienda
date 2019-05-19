@@ -33,15 +33,15 @@
 			<section id="clientes" class="main style1">
 				<div class="container">
 					<div class="row gtr-150">
-						<div class="col-6 col-12-medium">
+						<div class="col-10-large col-12-medium">
 							<header class="major">
 								<h2>Clientes</h2>
 							</header>
 							<p>Listado de clientes</p>
                                                         
-                                                        <table border="1" widht="600">
+                                                        <table border="1" widht="800">
                                                             <tr>
-                                                                <th>id</th><th>Nombre</th><th>Apellido</th><th>Documento</th><th>Telefono</th><th>Direccion</th>
+                                                                <th>id</th><th>Nombre</th><th>Apellido</th><th>Documento</th><th>Telefono</th><th>Direccion</th><th>Cantidad de Peliculas Alquiladas</th>
                                                             </tr>
                                                             <%
                                                             Connection cnx=null;
@@ -65,6 +65,7 @@
                                                                 <th><%=rs.getString(4)%></th>
                                                                 <th><%=rs.getString(5)%></th>
                                                                 <th><%=rs.getString(6)%></th>
+                                                                <th><%=rs.getString(7)%></th>
                                                                 </tr>
                                                                 
                                                             <%

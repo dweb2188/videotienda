@@ -88,7 +88,7 @@
 			<section id="misAlquiladas" class="main style1">
 				<div class="container">
 					<div class="left">
-						<div class="col-6 col-12-medium">
+						<div class="col-6 col-12-large">
 							<header class="major">
 								<h2>Mis Peliculas Alquiladas</h2>
 							</header>
@@ -112,11 +112,14 @@
                                                                 <th><%=rs.getString(1)%></th>
                                                                 <th><%=rs.getString(2)%></th>
                                                                 <th><%=rs.getString(3)%></th>
-                                                                </tr>
+                                                             
+                                                                
                                                                 <th>
                                                                     <a href="devolver.jsp?cod=<%=rs.getString(1)%>&usuario=<%request.getParameter("");%>">                                                                    
                                                                     <img src="images/play.png" width="30" height="30">
                                                                     </a>
+                                                                </th>    
+                                                                </tr>
                                                             <%
                                                                 }
                                                                 
