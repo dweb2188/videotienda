@@ -22,7 +22,7 @@
 				<div class="inner">
 					<span class="icon major fa-cloud"></span>
 					<h1>Bienvenidos a nuestro videoclub virtual donde podrás alquilar tus peliculas favoritas sin moverte de tu casa<br /></h1>
-					<h1>Bienvenido: <% out.print(request.getParameter("usuario"));%><br /></h1>
+					<h1>Bienvenido: <% out.print(request.getParameter("nombre"));%><br /></h1>
 					<ul class="actions special">
 						<li><a href="#alquilar" class="button scrolly">Alquilar Peliculas</a></li>
                                                 <li><a href="#misAlquiladas" class="button scrolly">Mis Peliculas Alquiladas</a></li>

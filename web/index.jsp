@@ -24,13 +24,10 @@
 	<form action="login.jsp" method="post">
         
        <tr>
-       <td>Usuario: </td>
-       <td width="10%"><input type="text" size="53" name="usuario"></td>
+       <td>Su nombre: </td>
+       <td width="10%"><input type="text" size="53" name="nombre"></td>
        </tr>
        <tr>
-       <td>Contraseña: </td>
-       <td><input type="text" size="53" name="contrasena"></td>
-       </tr>
        <p><input type="submit" value="Enviar"></p>
 				</div>
 			</section>
